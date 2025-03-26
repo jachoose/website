@@ -1,11 +1,189 @@
+<?php
+header("Content-Type: text/html; charset=UTF-8");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Website Tile here</title>
-    <p> Hello world</p>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dataflee Analytics India Pvt Ltd</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+            color: #333;
+        }
+        header {
+            background: #1a237e;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            font-size: 24px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #283593;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60vh;
+            background: url('https://source.unsplash.com/1600x900/?technology,analytics') no-repeat center;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        .hero h1 {
+            font-size: 42px;
+        }
+        .section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .services {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .service-item {
+            background: white;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 250px;
+        }
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+        .slider {
+            display: flex;
+            overflow: auto;
+            gap: 10px;
+            padding: 20px;
+        }
+        .slider img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background: #1a237e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        #chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1a237e;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <header>Dataflee Analytics India Pvt Ltd</header>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#analytics">Analytics</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <div class="hero">
+        <h1>Empowering Businesses with Data Insights</h1>
+    </div>
 
+    <section class="section" id="services">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service-item">📊 Sales Forecasting</div>
+            <div class="service-item">📦 Inventory Optimization</div>
+            <div class="service-item">📈 Customer Insights</div>
+            <div class="service-item">💼 B2B Data Solutions</div>
+        </div>
+    </section>
+    
+    <section class="section" id="analytics">
+        <h2>Real-Time Sales Performance</h2>
+        <div class="chart-container">
+            <canvas id="salesChart"></canvas>
+        </div>
+    </section>
+    
+    <section class="section">
+        <h2>Our Work</h2>
+        <div class="slider">
+            <img src="https://source.unsplash.com/300x200/?data,analytics" alt="Sample 1">
+            <img src="https://source.unsplash.com/300x200/?technology,graph" alt="Sample 2">
+            <img src="https://source.unsplash.com/300x200/?business,chart" alt="Sample 3">
+        </div>
+    </section>
+    
+    <section class="section" id="contact">
+        <h2>Contact Us</h2>
+        <p>Email: <a href="mailto:info@dataflee.com">info@dataflee.com</a></p>
+        <p>Phone: +91 98765 43210</p>
+        <p>Address: Bangalore, India</p>
+    </section>
+
+    <footer>
+        &copy; <?php echo date("Y"); ?> Dataflee Analytics India Pvt Ltd | All Rights Reserved
+    </footer>
+
+    <div id="chatbot">💬 Chat with us</div>
+
+    <script>
+        var ctx = document.getElementById('salesChart').getContext('2d');
+        var salesChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Sales Trends',
+                    data: [5000, 7000, 8000, 7500, 9000],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
